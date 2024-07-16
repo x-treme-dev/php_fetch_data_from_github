@@ -45,8 +45,8 @@
 			echo '</pre>';
 			
 			echo '<div class="out">'; 
-			echo '<h2 class="out__login">Login: ' . $array['login'] . '</h2>' . '<br>';
-			echo '<h2 class="out__login">Name: ' . $array['name'] . '</h2>' . '<br>';
+			echo '<h2 class="out__login">Login: ' . $array['login'] . '</h2>';
+			echo '<h2 class="out__login">Name: ' . $array['name'] . '</h2>';
 		    echo '<img class="out__img" src=' . $array['avatar_url'] . ' width="200"/>';
             echo'</div>';
 			
@@ -55,28 +55,22 @@
 			// запись файла-изображения в директорию
 			try{
 				if( ! ( $ch = curl_init() ) ) 
-					throw new Exception('Curl init failed');
-					
-					$options = [
-						CURLOPT_URL            => $array['avatar_url'],
-						CURLOPT_RETURNTRANSFER => true,
-					    CURLOPT_HTTPHEADER     => [
-							'User-Agent' => 'x-treme-dev',
-						]
-					];
-							
-					curl_setopt_array($ch, $options);
-					$file = curl_exec( $ch );
-					
-					file_put_contents( __DIR__ . '\image\\' . $name . '.png',  $file);
-					 
-				
-				
-			} catch(Exception $e){
+						throw new Exception('Curl init failed');
+						$options = [
+							CURLOPT_URL            => $array['avatar_url'],
+							CURLOPT_RETURNTRANSFER => true,
+							CURLOPT_HTTPHEADER     => [
+								'User-Agent' => 'x-treme-dev',
+							]
+						];
+								
+						curl_setopt_array($ch, $options);
+						$file = curl_exec( $ch );
+						// записать $file в указанную директорию на сервере
+						file_put_contents( __DIR__ . '\image\\' . $name . '.png',  $file);
+					} catch(Exception $e){
 				echo $e->getMessage();
 			}
-			
-	        
 		}
     ?>
 	
