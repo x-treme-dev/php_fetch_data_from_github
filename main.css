@@ -25,6 +25,8 @@ body{
 }
 
 .out{
+	 display: flex;
+	 justify-content: center;
 	 margin-top: 40px;
 }
 
@@ -32,4 +34,34 @@ body{
     margin-right: 5px;
 }
 
- 
+
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 5px solid #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-collapse: collapse; 
+	outline: 3px solid #ffd300;
+	font-size: 1.5em;
+	background: #FDF2E9;
+}
+.table__th {
+	font-weight: bold;
+	padding: 7px;
+	background: #F1C40F;
+	border: none;
+	text-align: left;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #ffd300;
+}
+.table__td {
+	padding: 7px;
+	border: none;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+
+}
+.table__tr:nth-child(even){
+	background: #f8f8f8!important;
+}
